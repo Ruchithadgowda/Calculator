@@ -1,0 +1,131 @@
+:root {
+	--background: hsl(240 10% 3.9%);
+	--foreground: hsl(0 0% 98%);
+
+	--calc-display-bg: hsl(240 7% 8%);
+	--calc-display-text: hsl(0 0% 98%);
+
+	--calc-number-bg: hsl(240 5% 18%);
+	--calc-number-hover: hsl(240 5% 22%);
+	--calc-number-text: hsl(0 0% 98%);
+
+	--calc-operator-bg: hsl(262 83% 58%);
+	--calc-operator-hover: hsl(262 83% 65%);
+	--calc-operator-active: hsl(262 83% 52%);
+	--calc-operator-text: hsl(0 0% 100%);
+
+	--calc-function-bg: hsl(220 14% 35%);
+	--calc-function-hover: hsl(220 14% 42%);
+	--calc-function-text: hsl(0 0% 98%);
+
+	--calc-equals-bg: hsl(30 100% 60%);
+	--calc-equals-hover: hsl(30 100% 65%);
+	--calc-equals-text: hsl(0 0% 100%);
+
+	--calc-gradient-number: linear-gradient(145deg, var(--calc-number-bg), hsl(240 5% 15%));
+	--calc-gradient-operator: linear-gradient(145deg, var(--calc-operator-bg), hsl(262 83% 52%));
+	--calc-gradient-function: linear-gradient(145deg, var(--calc-function-bg), hsl(220 14% 30%));
+	--calc-gradient-equals: linear-gradient(145deg, var(--calc-equals-bg), hsl(30 100% 55%));
+
+	--calc-shadow-button: 0 4px 8px -2px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+	--calc-shadow-display: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+	--calc-shadow-pressed: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+	margin: 0;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.min-h-screen { min-height: 100vh; }
+.bg-background { background: var(--background); }
+.p-4 { padding: 1rem; }
+.text-center { text-align: center; }
+.mb-8 { margin-bottom: 2rem; }
+.w-full { width: 100%; }
+.max-w-md { max-width: 28rem; }
+.rounded-3xl { border-radius: 1.5rem; }
+.p-6 { padding: 1.5rem; }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.font-light { font-weight: 300; }
+.mb-2 { margin-bottom: 0.5rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+
+.text-foreground { color: var(--foreground); }
+.text-muted-foreground { color: hsl(240 5% 64.9%); }
+
+.bg-calc-display-bg { background: var(--calc-display-bg); }
+.text-calc-display-text { color: var(--calc-display-text); }
+.shadow-calc-display { box-shadow: var(--calc-shadow-display); }
+
+.rounded-2xl { border-radius: 1rem; }
+.text-right { text-align: right; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.tracking-wider { letter-spacing: .05em; }
+.leading-none { line-height: 1; }
+.min-h-1_2em { min-height: 1.2em; }
+
+.grid { display: grid; }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gap-3 { gap: 0.75rem; }
+.mt-6 { margin-top: 1.5rem; }
+.col-span-2 { grid-column: span 2 / span 2; }
+
+.btn {
+	height: 4rem;
+	border-radius: 1rem;
+	font-weight: 500;
+	font-size: 1.25rem;
+	transition: transform 150ms ease, filter 150ms ease, background 150ms ease;
+	box-shadow: var(--calc-shadow-button);
+	user-select: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.btn:active {
+	transform: scale(0.95);
+	box-shadow: var(--calc-shadow-pressed);
+}
+
+.btn.number {
+	color: var(--calc-number-text);
+	background: var(--calc-gradient-number);
+}
+.btn.number:hover { background: var(--calc-number-hover); }
+
+.btn.operator {
+	color: var(--calc-operator-text);
+	background: var(--calc-gradient-operator);
+}
+.btn.operator.active { background: var(--calc-operator-active); transform: scale(0.95); }
+.btn.operator:hover { background: var(--calc-operator-hover); }
+
+.btn.function {
+	color: var(--calc-function-text);
+	background: var(--calc-gradient-function);
+	font-size: 1.125rem;
+}
+.btn.function:hover { background: var(--calc-function-hover); }
+
+.btn.equals {
+	color: var(--calc-equals-text);
+	background: var(--calc-gradient-equals);
+	font-weight: 600;
+}
+.btn.equals:hover { background: var(--calc-equals-hover); }
+
+/* Utility to emulate Tailwind min-h-[1.2em] used in display */
+.min-h-\[1.2em\] { min-height: 1.2em; }
